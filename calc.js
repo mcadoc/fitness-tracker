@@ -164,6 +164,7 @@
       avgSteps: avg(vals('steps')),
       avgSleep: avg(vals('sleep_quality')),
       avgStress: avg(vals('stress_level')),
+      avgFatigue: avg(vals('fatigue_level')),
       avgHunger: avg(vals('hunger_level')),
       proteinDaysHit: targets && targets.protein_g ? protein.filter(function (v) { return v >= targets.protein_g; }).length : null,
       proteinDaysLogged: protein.length,
