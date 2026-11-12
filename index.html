@@ -26,7 +26,6 @@
     button.secondary { background:transparent; color:var(--accent); border:1px solid var(--accent); }
     button.small { width:auto; padding:.35rem .7rem; margin:0; font-weight:500; }
     .row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    .row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
     nav { display:flex; gap:6px; margin:10px 0; }
     nav button { margin:0; background:transparent; color:var(--fg); border:1px solid var(--line); font-weight:500; padding:.5rem .3rem; }
     nav button.active { background:var(--accent); color:#fff; border-color:var(--accent); }
@@ -44,6 +43,7 @@
     .overlays { display:flex; flex-wrap:wrap; gap:6px 14px; margin:8px 0; } .overlays label { display:flex; align-items:center; margin:0; color:var(--fg); font-size:.9rem; }
     .chartbox { position:relative; height:320px; }
     .hint { font-size:.8rem; color:var(--muted); }
+    .dayname { text-align:center; font-weight:600; margin:8px 0 0; }
   </style>
 </head>
 <body>
@@ -80,20 +80,24 @@
           <input id="logDate" type="date" style="max-width:190px" />
           <button id="dayNext" class="small secondary">&rarr;</button>
         </div>
+        <p id="dayName" class="dayname"></p>
         <div class="row">
           <div><label for="f-weight">Weight (kg)</label><input id="f-weight" type="number" step="0.01" inputmode="decimal" /></div>
-          <div><label for="f-steps">Steps</label><input id="f-steps" type="number" step="1" inputmode="numeric" /></div>
+          <div><label for="f-steps">Steps</label><input id="f-steps" class="int" type="text" inputmode="numeric" autocomplete="off" /></div>
         </div>
         <div class="row">
-          <div><label for="f-calories">Calories</label><input id="f-calories" type="number" step="1" inputmode="numeric" /></div>
-          <div><label for="f-protein">Protein (g)</label><input id="f-protein" type="number" step="1" inputmode="numeric" /></div>
+          <div><label for="f-calories">Calories</label><input id="f-calories" class="int" type="text" inputmode="numeric" autocomplete="off" /></div>
+          <div><label for="f-protein">Protein (g)</label><input id="f-protein" class="int" type="text" inputmode="numeric" autocomplete="off" /></div>
         </div>
         <label class="check"><input id="f-workout" type="checkbox" /> I worked out today</label>
         <label for="f-activities">Other activities (walk, swim, sports...)</label>
         <input id="f-activities" maxlength="500" />
-        <div class="row3">
+        <div class="row">
           <div><label for="f-sleep">Sleep <span class="hint">(5 = great)</span></label><select id="f-sleep"></select></div>
           <div><label for="f-stress">Stress <span class="hint">(5 = high)</span></label><select id="f-stress"></select></div>
+        </div>
+        <div class="row">
+          <div><label for="f-fatigue">Fatigue <span class="hint">(5 = high)</span></label><select id="f-fatigue"></select></div>
           <div><label for="f-hunger">Hunger <span class="hint">(5 = high)</span></label><select id="f-hunger"></select></div>
         </div>
         <label for="f-wins">Today's wins</label>
@@ -115,11 +119,11 @@
         </div>
         <h2>Targets for this week</h2>
         <div class="row">
-          <div><label for="t-calories">Daily calories</label><input id="t-calories" type="number" step="25" inputmode="numeric" /></div>
-          <div><label for="t-protein">Daily protein (g)</label><input id="t-protein" type="number" step="1" inputmode="numeric" /></div>
+          <div><label for="t-calories">Daily calories</label><input id="t-calories" class="int" type="text" inputmode="numeric" autocomplete="off" /></div>
+          <div><label for="t-protein">Daily protein (g)</label><input id="t-protein" class="int" type="text" inputmode="numeric" autocomplete="off" /></div>
         </div>
         <div class="row">
-          <div><label for="t-steps">Daily steps</label><input id="t-steps" type="number" step="500" inputmode="numeric" /></div>
+          <div><label for="t-steps">Daily steps</label><input id="t-steps" class="int" type="text" inputmode="numeric" autocomplete="off" /></div>
           <div><label for="t-workouts">Workouts this week</label><input id="t-workouts" type="number" step="1" min="0" max="14" inputmode="numeric" /></div>
         </div>
         <div class="row">
